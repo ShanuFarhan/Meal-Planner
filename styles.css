@@ -1,0 +1,93 @@
+body
+    {
+        background-color: white;
+    }
+    nav{
+      background-color: orange;
+    }
+    .container 
+    {
+        margin-top: 2%;
+        width: 80%!important;
+    }
+    #submit 
+    {
+        margin-top: 15px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    .h {
+        width: 47%;
+        float: left;
+    }
+    .w {
+        width: 47%;
+        float: right;
+    }
+    .g {
+        width: 47%;
+        float: left;
+    }
+    .ac {
+        width: 47%;
+        float: right;
+    }
+    .n {
+        width: 47%;
+        float: left;
+    }
+    .a {
+        width: 47%;
+        float: right;
+    }
+    .meal-plan{
+      display: flex;
+      gap: 30px;
+      justify-content: space-between;
+    }
+    .meal-card {
+      width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+    .meal-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    .meal-card h3 {
+      margin: 0;
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+    .meal-card p {
+      margin: 0;
+      color: #666;
+    }
+    .get-recipe-btn {
+      display: inline-block;
+      padding: 5px 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .tab-pane {
+      margin-top: 20px;
+    }
+    .tab-pane ul {
+      list-style: none;
+    }
+    .recipe-get{
+      background-color: lightgray;
+      margin-bottom: 100px;
+      height: 400px;
+      border: #ccc;
+      border-radius: 10px;
+    }

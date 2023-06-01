@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Meal Planner</title>
+  <link rel="icon" type="image/x-icon" href="https://images-eds-ssl.xboxlive.com/image?url=Q_rwcVSTCIytJ0KOzcjWTYtI_MIrVq4WfN7M.qN7gV3ayNiQeJK6Uxg366DH3bnRNX3HESEGcqBO6Oj7s7QSb.VFXsX8WbLeyKCv.V9nPTgnmNGVGq12QcvpWEyUVVGsA71UO4ru3DkPZCZ_ozHhPg--&format=source">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="App.js"></script>
+</head>
+<body>
+    
+<nav class="navbar navbar-expand-sm bg-danger navbar-dark">
+    <img class="navbar-toggler-icon" src="https://i.pinimg.com/originals/c0/76/29/c07629821da433db0dc1757ca89fc2aa.jpg"
+  <i><a class="navbar-brand fst-italic" href="#">Meal Planner</a></i>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item"><i>
+        <a class="nav-link" href="#bmr-result">Daily Calorie Calculation</a>
+        
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#meal-plan">Meal Plan Generation</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#recipe-get">Get Recipe</a></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <i><center><h2>Meal Planner</h2></center></i>
+    <div style="margin-top: 20px;">
+<form onsubmit="event.preventDefault(); calculateBMR();">
+    <div class="form-group n">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+    </div>
+    <div class="form-group a">
+        <label for="age">Age:</label>
+        <input type="number" class="form-control" id="age" placeholder="Enter your age" required>
+      </div>
+    </div>
+    <div>
+    <div class="form-group h">
+      <label for="height">Height(cm):</label>
+      <input type="number" class="form-control" id="height" placeholder="Enter your height" required>
+    </div>
+    <div class="form-group w">
+      <label for="weight">Weight(kg):</label>
+      <input type="number" class="form-control" id="weight" placeholder="Enter your weight" required>
+    </div>
+    </div>
+    <div>
+    <div class="form-group g">
+        <label for="gender">Gender:</label>
+        <select class="form-control" id="gender" required>
+          <option value="" >Select your gender</option>
+          <option value="male" name="gender" >Male</option>
+          <option value="female" name="gender">Female</option>
+        </select>
+    </div>
+    <div class="form-group ac">
+        <label for="activity">Activity Level:</label>
+        <select class="form-control" id="activity-level" required>
+          <option value="">Select your Activity Level</option>
+          <option value="1.375">Lightly active</option>
+          <option value="1.55">Moderately active</option>
+          <option value="1.725">Active</option>
+        </select>
+    </div>
+    </div>
+    <center><button type="submit" id="submit" onclick="generateMealPlan()" class="btn btn-danger">BMI</button></center>
+</form>
+<h3 id="bmr-result">Results:</h3>
+  <p>BMR: <span id="bmr-result"></span> calories</p>
+  <p>Daily Calorie Requirement: <span id="calorie-requirement"></span> calories</p>
+  <center><button style="margin-bottom: 20px;" class="btn btn-danger" onclick="generateMealPlan()">Generate Meal Plan</button></center>
+<!-- 
+  <div id="meal-plan" style="display: none;"> -->
+    <!-- <div id="data-container"></div> -->
+  <div id="meal-plan" class="meal-plan">
+    <div class="meal-card">
+        <img src="https://media.istockphoto.com/id/533645537/photo/breakfast-with-bacon-eggs-pancakes-and-toast.jpg?s=612x612&w=0&k=20&c=TumrEwImmLi4TIVeirgynvTpHhyvt9LeiDXLci45NWg=" alt="Breakfast">
+        <h3>Breakfast</h3>
+        <h3 id="meal-1">Meal 1</h3>
+  
+        <button class="get-recipe-btn" onclick="GetRecipe(1)">Get Recipe</button>
+      </div>
+    
+      <div class="meal-card">
+        <img src="https://thumbs.dreamstime.com/b/collection-take-away-foil-boxes-healthy-food-set-containers-meals-top-view-free-copy-space-164637874.jpg" alt="Lunch">
+        <h3>Lunch</h3>
+        <h3 id="meal-2">Meal 1</h3>
+        
+        <button class="get-recipe-btn" onclick="GetRecipe(2)" >Get Recipe</button>
+      </div>
+    
+      <div class="meal-card">
+        <img src="https://thumbs.dreamstime.com/b/collection-take-away-foil-boxes-healthy-food-set-containers-meals-top-view-free-copy-space-164637874.jpg" alt="Dinner">
+        <h3>Dinner</h3>
+        <h3 id="meal-3">Meal 1</h3>
+      
+        <button class="get-recipe-btn" onclick="GetRecipe(3)">Get Recipe</button>
+      </div>
+    </div>
+    <div id="recipe-get" style="padding: 10px;margin-bottom: 20px;height: auto;" class="recipe-get">
+    <ul class="nav nav-tabs" id="recipeTabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active text-danger" id="ingredients-tab" data-toggle="tab" href="#ingredients" role="tab" aria-controls="ing" aria-selected="true">Ingredients</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-danger" id="steps-tab" data-toggle="tab" href="#steps" role="tab" aria-controls="steps" aria-selected="false">Steps</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-danger" id="summary-tab" data-toggle="tab" href="#summary" role="tab" aria-controls="summary" aria-selected="false">Equipment</a>
+        </li>
+      </ul>
+    
+      <div  class="tab-content"  id="recipeTabContent">
+        <div class="tab-pane fade show active" id="ingredients" role="tabpanel" aria-labelledby="ingredients-tab">
+          <p id="ing"></p>
+        </div>
+        <div class="tab-pane fade" id="steps" role="tabpanel" aria-labelledby="steps-tab">
+          
+        </div>
+        <div class="tab-pane fade" id="summary" role="tabpanel" aria-labelledby="equipment-tab">
+          
+        </div>
+      </div>
+      <!-- <div>
+        <p id="ing"></p>
+      </div> -->
+    </div>
+
+  <!-- <div id="meal-plan"> -->
+
+<!-- </div> -->
+</div>
+</body>
+</html>
