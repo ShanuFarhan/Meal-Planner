@@ -1,22 +1,4 @@
-// function fetchData() {
-//     fetch(' https://api.spoonacular.com/mealplanner/generate?apiKey=912b9319e0c74847a39150aefa3b6843&timeFrame=day')
-//     .then(response => response.json())
-//     .then(data => {
-//     //   var result = JSON.parse(JSON.stringify(data));
-//     //   document.getElementById('result').innerText = 'Your Ideal Meals for the Day:\n';
-//     //   for(let i=0;i<result.meals.length;i++)
-//     //   {
-//     //       console.log(result.meals[i])
-//     //       document.getElementById('result').innerText += '\n'+JSON.stringify(result.meals[i].title).slice(1, -1);+'\n';
-//     //   }
-//     console.log(data);
-//     })
-//     .catch(error => 
-//       {
-//       console.log('Error:', error);
-//       document.getElementById('result').innerText = 'Error occurred while fetching data.';
-//     });
-//   }
+
   var mealids=[];
   function calculateBMR() {
     // Get user input
@@ -61,41 +43,7 @@
         var meal1=document.getElementById('meal-1')
         var meal2=document.getElementById('meal-2')
         var meal3=document.getElementById('meal-3')
-        // Populate the meal-plan section with the data
-        // var mealPlanSection = document.getElementById("meal-plan");
-
-        // // Clear any existing content
-        // mealPlanSection.innerHTML = "";
-
-        // // Create and append meal cards for each meal in the plan
-        // for(let meal=0;meal<mealPlan.length;meal++) { 
-        //   var mealCard = document.createElement("div");
-        //   mealCard.className = "meal-card";
-
-        //   var mealImage = document.createElement("img");
-        //   mealImage.src = meal.image;
-        //   mealImage.alt = meal.title;
-        //   mealCard.appendChild(mealImage);
-
-        //   var mealName = document.createElement("h3");
-        //   mealName.textContent = meal.title;
-        //   mealCard.appendChild(mealName);
-
-        // //   var mealCalories = document.createElement("p");
-        // //   mealCalories.textContent = "Calories: " + nutrients[0];
-        // //   mealCard.appendChild(mealCalories);
-
-        //   var getRecipeBtn = document.createElement("a");
-        //   getRecipeBtn.className = "get-recipe-btn";
-        //   getRecipeBtn.href = meal.sourceUrl;
-        //   getRecipeBtn.textContent = "Get Recipe";
-        //   mealCard.appendChild(getRecipeBtn);
-
-        //   mealPlanSection.appendChild(mealCard);
-        // };
-
-        // Show the meal-plan section
-        // mealPlanSection.style.display = "block";
+       
         meal1.innerHTML=data.meals[0].title;
         meal2.innerHTML=data.meals[1].title;
         meal3.innerHTML=data.meals[2].title;
@@ -117,10 +65,7 @@
       .then(response => response.json())
       .then(data => {
         console.log(data)
-      //  for(let i=0;i<data.extendedIngredients.length;i++){
-      //     ingredients+='\n'+data.extendedIngredients[i].name+'\n'
-      //     console.log(data.extendedIngredients[i].name)
-      //  }
+      
       var ingredients=document.getElementById('ing');
       var ste=document.getElementById('steps');
       var sum=document.getElementById('summary');
